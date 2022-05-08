@@ -27,24 +27,29 @@ public:
 private:
 
 juce::Slider mTappedGainMixSlider;
+    juce::Label mTappedGainMixSliderLabel;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> TappedGainMixSliderAttachment;
     
     juce::Slider mFeedbackGainSlider;
+    juce::Label mFeedbackGainSliderLabel;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> FeedbackGainSliderAttachment;
     
     juce::Slider mMixSlider;
+    juce::Label mMixSliderLabel;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> MixSliderAttachment;
     
     juce::Slider mDelayTotalSlider;
+    juce::Label mDelayTotalSliderLabel;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> DelayTimeTotalAttachment;
     
     juce::Slider mDelayTapSlider;
+    juce::Label mDelayTapSliderLabel;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> DelayTimeTapAttachment;
-
+    
+    juce::Label GUI_Title;
 
     
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
+  
     MattJamesCW3AudioProcessor& audioProcessor;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MattJamesCW3AudioProcessorEditor)

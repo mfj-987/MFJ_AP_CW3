@@ -17,28 +17,8 @@ delayProcessor::delayProcessor(int maxDelaySamples) :mSampleRate(44100),mDSPBuff
         
     }
 
-
-//delayProcessor::delayProcessor(const int sampleRate, const int bufferSize) :mSampleRate(sampleRate),mDSPBufferSize(bufferSize)
-//    {
-//       //overload constructor ((USE THIS)) ^^
-//    }
-
-
-//int delayProcessor::setMaxDelayTime(const float time, const int sampleRate)
-//    {
-//        mDelayTimeMax = time;
-//        mSampleRate = sampleRate;
-//        mDSPBufferSize = (mDelayTimeMax * mSampleRate) + 1;
-//        mDSPBuffer.resize(mDSPBufferSize);
-//        return mDelayTimeMax;
-//
-//    }
-
-
 void delayProcessor::fillDelayBuffer(float value)
     {
-        //value = mAudioBuffer[return_ReadPos1()];
-        
         mDSPBuffer[mWritePos] = value;
     }
 
@@ -46,13 +26,12 @@ void delayProcessor::fillDelayBuffer(float value)
 void delayProcessor::update_ReadPos1()
     {
         mReadPos1 = (mWritePos - mDelayTimeSamps + mDSPBufferSize) % mDSPBufferSize;
-//    mReadPos1 = mWritePos;
     }
 
 
 void delayProcessor::update_ReadPos2()
     {
-        mReadPos2 = (mWritePos - mDelayTot + mDSPBufferSize) % mDSPBufferSize;
+        mReadPos2 = (mWritePos - (int)mDelayTot + mDSPBufferSize) % mDSPBufferSize;
     }
 
 
